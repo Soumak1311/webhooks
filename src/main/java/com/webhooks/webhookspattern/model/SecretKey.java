@@ -1,20 +1,25 @@
 package com.webhooks.webhookspattern.model;
 
-import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class SecretKey {
 	
-	public SecretKey() {
-		this.value = UUID.randomUUID().toString();
-		this.id = 0L;
-	}
-	
 	private Long id;
-	private String value;
+	@Id
+	@GeneratedValue
+	private Long value;
 }

@@ -27,6 +27,11 @@ public class WebhooksController {
 		return webhooksService.createWebhooks(webhooks, developerAppKey);
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, path = "/check")
+	public String abc() {
+		return "hey";
+	}
+	
 	public String getDeveloperAppKey(HttpServletRequest request) {
 		return request.getHeader("developerAppKey");
 	}

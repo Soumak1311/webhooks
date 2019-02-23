@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.webhooks.webhookspattern.data.WebhookRequest;
 import com.webhooks.webhookspattern.data.WebhookResponse;
 import com.webhooks.webhookspattern.mappers.WebhookResponseMapper;
+import com.webhooks.webhookspattern.model.SecretKey;
 import com.webhooks.webhookspattern.model.Webhook;
 import com.webhooks.webhookspattern.repo.WebhooksRepository;
 
@@ -21,6 +22,7 @@ public class WebhooksServiceImpl implements WebhooksService{
 	@Override
 	public List<WebhookResponse> createWebhooks(List<WebhookRequest> w_reqs, String developerAppKey){
 		List<WebhookResponse> webhookResponse = new ArrayList<>();
+		SecretKey secretKey = SecretKey.builder().build();
 		for(WebhookRequest webhookReq: w_reqs) {
 			Webhook webhook = Webhook.builder()
 					.callbackUrl(webhookReq.getCallbackUrl())

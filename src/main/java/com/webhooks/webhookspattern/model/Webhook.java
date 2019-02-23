@@ -6,9 +6,9 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.Type;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,13 +22,10 @@ import lombok.Setter;
 @Builder
 public class Webhook {
 	
-	public Webhook() {
-		this.webhookKey = UUID.randomUUID().toString();
-	}
-	
 	@Id
 	@Column(name="webhookKey")
-	private String webhookKey;
+	@GeneratedValue
+	private Long webhookKey;
 	@Column(name="eventName")
 	private String eventName;
 	@Column(name="eventVersion")
@@ -39,8 +36,6 @@ public class Webhook {
 	private Long UPI;
 	@Column(name="appKey")
 	private String developerAppKey;
-	@Column(name="secretKeys")
-	private String secretKeys;
 	@Column(name="callbackUrl")
 	private String callbackUrl;
 }
